@@ -31,8 +31,3 @@ class Profile(models.Model):
         new_name = new_title_object.First_Name
         return new_name
 
-
-@receiver(post_save, sender=User)
-def create_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
