@@ -12,5 +12,5 @@ class Profile(models.Model):
     Last_Name = models.CharField(max_length=50)
     Email = models.EmailField(max_length=50)
     bio = HTMLField()
-    profile_pic = CloudinaryField('image', default="/", validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])], blank=True)
+    profile_pic = CloudinaryField('image', default="", validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])], blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)

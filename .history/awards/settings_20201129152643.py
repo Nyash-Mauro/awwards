@@ -10,13 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import django_heroku
-import dj_database_url
-from decouple import config, Csv
-from pathlib import Path
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -126,16 +120,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-cloudinary.config(
-    cloud_name="dapwcit3i",
-    api_key="917726294659896",
-    api_secret="PeLRKhRoA2E-r-5ykRTpuEBNcH4"
-)
