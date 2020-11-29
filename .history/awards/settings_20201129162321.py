@@ -38,7 +38,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'award',
+    ''
     'bootstrap4',
     'tinymce',
     'star_ratings',
