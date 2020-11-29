@@ -71,11 +71,10 @@ class PostViewset(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('title')
     serializer_class = PostSerializer
 
-
 class ProfileViewset(viewsets.ModelViewSet):
     '''
     API endpoint that allows one to view the details of profiles
     '''
-
+    
     queryset = Profile.objects.all()
     serializer_class = ProfileSeralizer
