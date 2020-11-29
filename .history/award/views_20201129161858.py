@@ -52,12 +52,11 @@ def update_profile(request):
     else:
         form = UpdateProfileForm(instance=request.user.profile)
         return render(request, '/update-prof.html', {'form': form})
-
-
 def profile_info(request):
-
-    current_user = request.user
+    
+    current_user=request.user
     profile_info = Profile.objects.filter(user=current_user).first()
-    projects = request.user.post_set.all()
-
-    return render(request, '/profile.html', {"projects": projects, "profile": profile_info, "current_user": current_user})
+    projects =  request.user.post_set.all()
+    
+    
+    return render(request,'myprojects/profile.html',{"projects":projects,"profile":profile_info,"current_user":current_user})
