@@ -60,7 +60,7 @@ def profile_info(request):
     profile_info = Profile.objects.filter(user=current_user).first()
     projects = request.user.post_set.all()
 
-    return render(request, 'award/profile.html', {"projects": projects, "profile": profile_info, "current_user": current_user})
+    return render(request, '/profile.html', {"projects": projects, "profile": profile_info, "current_user": current_user})
 
 
 class PostViewset(viewsets.ModelViewSet):

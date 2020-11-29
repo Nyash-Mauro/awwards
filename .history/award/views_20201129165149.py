@@ -9,7 +9,7 @@ from .serializers import PostSerializer, ProfileSeralizer
 @login_required(login_url='/accounts/login/?next=/')
 def home(request):
     projects = Post.objects.all()
-    return render(request, 'award/index.html', {"projects": projects})
+    return render(request, 'awar/index.html', {"projects": projects})
 
 
 def new_project(request):
@@ -23,7 +23,7 @@ def new_project(request):
         return redirect('home')
     else:
         form = ProjectUpload()
-        return render(request, 'award/new_post.html', {"form": form})
+        return render(request, '/new_post.html', {"form": form})
 
 
 def search_project(request):
@@ -33,11 +33,11 @@ def search_project(request):
         search_term = request.GET.get("search")
         searched_project = Post.objects.filter(title__icontains=search_term)
         message = f"{search_term}"
-        return render(request, 'award/search.html', {"message": message, "projects": searched_project})
+        return render(request, '/search.html', {"message": message, "projects": searched_project})
 
     else:
         message = "You haven't searched for any term "
-        return render(request, 'award/search.html', {"message": message})
+        return render(request, '/search.html', {"message": message})
 
 
 def update_profile(request):
@@ -51,7 +51,7 @@ def update_profile(request):
         return redirect('home')
     else:
         form = UpdateProfileForm(instance=request.user.profile)
-        return render(request, 'award/update_profile.html', {'form': form})
+        return render(request, '/update-prof.html', {'form': form})
 
 
 def profile_info(request):
@@ -60,7 +60,7 @@ def profile_info(request):
     profile_info = Profile.objects.filter(user=current_user).first()
     projects = request.user.post_set.all()
 
-    return render(request, 'award/profile.html', {"projects": projects, "profile": profile_info, "current_user": current_user})
+    return render(request, '/profile.html', {"projects": projects, "profile": profile_info, "current_user": current_user})
 
 
 class PostViewset(viewsets.ModelViewSet):
