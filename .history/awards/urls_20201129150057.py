@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from rest_framework import routers
 from django.contrib import admin
 from django.contrib.auth import views
-from award.views import PostViewset,ProfileViewset
+from .views import PostViewset,ProfileViewset
 
 
 
