@@ -1,6 +1,5 @@
 from django.db import models
 import datetime as dt 
-from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from django.db.models.signals import post_save
@@ -12,5 +11,5 @@ class Profile(models.Model):
     Last_Name = models.CharField(max_length=50)
     Email = models.EmailField(max_length=50)
     bio = HTMLField()
-    profile_pic = CloudinaryField('image', default="media/avater.png", validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])], blank=True)
+    profile_pic =  image =CloudinaryField('image', default="media/avater.png", validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])], blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
