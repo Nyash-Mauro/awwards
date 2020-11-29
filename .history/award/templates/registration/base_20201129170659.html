@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Awwwwards</title>
+    <title>AW</title>
     {% block styles %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,7 +17,7 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
         integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-
+        
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/index.css'%}">
     {%  endblock %}
@@ -42,15 +42,14 @@
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="{%url 'profile'%}">{{user.username}}</a>
+                        <a class="nav-link" href="{%url 'profile'%}">{{user.username}}</a>
                 </li>
                 <li class="nav-item ml-1">
                     <a class="nav-link " href="/logout" tabindex="-1" aria-disabled="true">logout </a>
                 </li>
 
             </ul>
-            <a href="{%url 'profile'%}"><img src="{{user.profile.profile_pic.url}}" alt=""
-                    style="border-radius: 50%; width:50px; height:50px; border-color: rgb(245, 6, 6); border-width: 1px;"></a>
+            <a href="{%url 'profile'%}"><img src="{{user.profile.profile_pic.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: rgb(245, 6, 6); border-width: 1px;"></a>
             {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
