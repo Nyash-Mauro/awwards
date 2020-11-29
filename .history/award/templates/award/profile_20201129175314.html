@@ -1,18 +1,17 @@
-{% extends 'award/base.html'  %}
+{% extends 'myprojects/base.html'  %}
 
 
 {% block content %}
 <div class="container">
 
     <div class="row justify-content-center">
-        <div class="col-sm-6 col-md-5"
-            style="height: 450px; background-color: azure; position:sticky ; top: 0; z-index: 3;">
+        <div class="col-sm-6 col-md-5" style="height: 450px; background-color: azure; position:sticky ; top: 0; z-index: 3;">
 
             <h5 class="user text-center">{{profile.user.username}}</h5>
             <img src="{{profile.profile_pic.url}}" class="img-thumbnail img-responsive img-fluid" alt=""
                 style="border-radius: 50%; width:100px; height:100px; border-color: rgb(233, 22, 22); border-width: 1.5px;">
             <a href="{%url 'profileupdate'%}" class="btn btn-outline-info btn-sm">Edit Profile</a>
-            <h3 class="">B</h3>
+            <h3 class="">BIO</h3>
             <p>{{profile.bio | safe}}</p>
             <p class=""><b>Firstname:</b> {{profile.First_Name}}</p>
             <p><b>Lastname:</b> {{profile.Last_Name}}</p>
@@ -36,6 +35,7 @@
 
 
 
+                <!-- Edit Profile section -->
 
             </div>
 
