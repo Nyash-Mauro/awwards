@@ -1,4 +1,4 @@
-{% extends 'award/base.html'  %}
+{% extends 'myprojects/base.html'  %}
 {% load static %}
 {% load ratings %}
 {% block content %}
@@ -39,7 +39,7 @@
                 <p class="card-text">{{project.description | safe}}.</p>
 
                 {% ratings project %}
-                <a href="{{project.link}}" class="btn btn-primary">See more</a>
+                <a href="{{project.link}}" class="btn btn-primary">see more</a>
             </div>
         </div>
     </div>
