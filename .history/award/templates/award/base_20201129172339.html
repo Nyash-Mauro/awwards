@@ -17,9 +17,7 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
         integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&family=Teko&display=swap" rel="stylesheet">
-
+        
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/index.css'%}">
     {%  endblock %}
@@ -27,7 +25,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Awwards</a>
+        <a class="navbar-brand" href="#">Rater</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,15 +42,14 @@
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="{%url 'profile'%}">{{user.username}}</a>
+                        <a class="nav-link" href="{%url 'profile'%}">{{user.username}}</a>
                 </li>
                 <li class="nav-item ml-1">
                     <a class="nav-link " href="/logout" tabindex="-1" aria-disabled="true">logout </a>
                 </li>
 
             </ul>
-            <a href="{%url 'profile'%}"><img src="{{user.profile.profile_pic.url}}" alt=""
-                    style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></a>
+            <a href="{%url 'profile'%}"><img src="{{user.profile.profile_pic.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></a>
             {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
