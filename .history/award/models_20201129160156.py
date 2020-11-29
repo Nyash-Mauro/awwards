@@ -45,7 +45,7 @@ def save_profile(sender, instance, **kwargs):
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
-    image = CloudinaryField('image')
+     image = CloudinaryField('image')
     description = HTMLField()
     link = models.CharField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -71,13 +71,3 @@ class Post(models.Model):
     def __str__(self):
 
         return self.title
-
-
-class Reviews(models.Model):
-    title = models.CharField(max_length=50)
-    review = models.TextField()
-    design = models.PositiveIntegerField(default=0)
-    usability = models.PositiveIntegerField(default=0)
-    content = models.PositiveIntegerField(default=0)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
