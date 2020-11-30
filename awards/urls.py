@@ -13,25 +13,28 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+from django.urls import path, include
 from rest_framework import routers
 from django.contrib import admin
-from django.contrib.auth import views
-from award.views import PostViewset,ProfileViewset
-
-
+from django.contrib.auth import views as auth_views
+from award.views import PostViewset, ProfileViewset
+from django_registration.backends.one_step.views import RegistrationView
+from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'profiles', ProfileViewset)
 router.register(r'posts', PostViewset)
 
 urlpatterns = [
-    
-    url(r'^admin/', admin.site.urls),
-    url(r'',include('award.urls')),
-    url('',include(router.urls)),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout,{"next_page":'/'}),
-    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
-    url(r'api-auth/', include('rest_framework.urls',namespace='rest_framework'))
+
+    path('admin/', admin.site.urls),
+    path('', include('award.urls')),
+    path('', include(router.urls)),
+    path('accounts/', include('django_registration.backends.one_step.urls')),
+    # url(r'^accounts/', include('django_registration.backends.simple.urls')),
+    # url(r'^logout/$', auth_views.logout, {"next_page": '/'}),
+    path('logout/', auth_views.LogoutView.as_view(),{'next_page': settings.LOGIN_REDIRECT_URL}, name='logout'), 
+    path('ratings/', include('star_ratings.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
