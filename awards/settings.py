@@ -81,7 +81,7 @@ TEMPLATES = [
         },
     },
 ]
-
+ACCOUNT_ACTIVATION_DAYS = 7
 WSGI_APPLICATION = 'awards.wsgi.application'
 
 
