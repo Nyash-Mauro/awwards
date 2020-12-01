@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect
 from . models import *
-from .forms import ProjectUpload, UpdateProfileForm
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets
 from .serializers import PostSerializer, ProfileSeralizer
 
 
-@login_required(login_url='/accounts/login/?next=/')
+@login_required(login_url='/accounts/login/')
 def home(request):
     projects = Post.objects.all()
     return render(request, 'award/index.html', {"projects": projects})
 
-
+@login_required(login_url='/accounts/login/')
 def new_project(request):
     current_user = request.user
     if request.method == 'POST':
@@ -24,6 +24,30 @@ def new_project(request):
     else:
         form = ProjectUpload()
         return render(request, 'award/new_post.html', {"form": form})
+
+
+def registration(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            form.save()
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password1 = form.cleaned_data['password1']
+            recipient = User(username=username, email=email)
+            try:
+                (request, f'Account has been created successfully!')
+            except:
+                print('error')
+            return redirect('login')
+
+    else:
+        form = RegisterForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'registration/registration_form.html', context)
 
 
 def search_project(request):

@@ -30,11 +30,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('award.urls')),
     path('', include(router.urls)),
-    path('accounts/', include('django_registration.backends.one_step.urls')),
-    # url(r'^accounts/', include('django_registration.backends.simple.urls')),
-    # url(r'^logout/$', auth_views.logout, {"next_page": '/'}),
-    path('logout/', auth_views.LogoutView.as_view(),{'next_page': settings.LOGIN_REDIRECT_URL}, name='logout'), 
+    path('accounts/register/', RegistrationView.as_view(success_url='/accounts/login/'),
+         include('django_registration.backends.one_step.urls')),
+    path('logout/', auth_views.LogoutView.as_view(),
+         {'next_page': settings.LOGIN_REDIRECT_URL}, name='logout'),
     path('ratings/', include('star_ratings.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
-

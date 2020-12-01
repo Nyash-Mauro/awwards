@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -9,7 +10,11 @@ urlpatterns = [
     path('newproject/', views.new_project, name='newproject'),
     path('search_results/', views.search_project, name="search_project"),
     path('update/', views.update_profile, name="profileupdate"),
-    path('profile/', views.profile_info, name='profile')
+    path('login/', auth_views.LoginView.as_view(
+        template_name='registration/login.html'), name='login'),
+    path('profile/', views.profile_info, name='profile'),
+    path('accounts/register/', views.registration, name='register')
+
 ]
 
 if settings.DEBUG:
