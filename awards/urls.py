@@ -34,7 +34,7 @@ urlpatterns = [
          include('django_registration.backends.one_step.urls')),
     path('logout/', auth_views.LogoutView.as_view(),
          {'next_page': settings.LOGIN_REDIRECT_URL}, name='logout'),
-    path('ratings/', include('star_ratings.urls')),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
