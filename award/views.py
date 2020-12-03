@@ -11,6 +11,7 @@ def home(request):
     projects = Post.objects.all()
     return render(request, 'award/index.html', {"projects": projects})
 
+
 @login_required(login_url='/accounts/login/')
 def new_project(request):
     current_user = request.user
@@ -64,6 +65,7 @@ def search_project(request):
         return render(request, 'award/search.html', {"message": message})
 
 
+@login_required(login_url='/accounts/profile/')
 def update_profile(request):
     user_profile = Profile.objects.get(user=request.user)
 
