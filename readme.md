@@ -16,14 +16,6 @@ Maurice Emmanuel Nyanja
 
 ## INSTALLATION
 
-**To view the figmalink go to [click here]()**
-
-To view the application go to [click here]()
-
-project posting API[visit here]()
-
-profiles API[visit here]()
-
 - Step 1: Clone this repo :git clone ()
 
 - step 2: Open the repo using your text editor e.g atom or vscode

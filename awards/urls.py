@@ -22,8 +22,8 @@ from django_registration.backends.one_step.views import RegistrationView
 from django.conf import settings
 
 router = routers.DefaultRouter()
-router.register(r'profiles', ProfileViewset)
-router.register(r'posts', PostViewset)
+# router.register(r'profiles', ProfileViewset)
+# router.register(r'posts', PostViewset)
 
 urlpatterns = [
 
